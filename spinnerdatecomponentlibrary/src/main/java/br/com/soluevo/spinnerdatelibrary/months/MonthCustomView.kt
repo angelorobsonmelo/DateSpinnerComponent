@@ -114,6 +114,7 @@ class MonthCustomView(context: Context, attrs: AttributeSet) : LinearLayout(cont
         val lastPosition = months.size - 1
 
         mMaterialSpinner = binding.spinner
+        mMaterialSpinner.textSize = 16f
         mMaterialSpinner.gravity = Gravity.CENTER_HORIZONTAL
         mMaterialSpinner.setTextColor(ContextCompat.getColor(context, android.R.color.black))
         mMaterialSpinner.setItems(months.map { month -> month.title })

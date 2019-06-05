@@ -14,13 +14,23 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+        <View android:id="@+id/view2"
+              style="@style/Divider"
+              android:layout_marginTop="16dp"
+        />
 
         <com.jaredrummler.materialspinner.MaterialSpinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:ms_padding_top="16dp"
+                app:ms_padding_bottom="16dp"
         />
+
+        <View android:id="@+id/view"
+              style="@style/Divider"/>
 
     </LinearLayout>
 

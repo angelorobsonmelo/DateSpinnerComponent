@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), MonthHandler {
         customView = month_custom_view_id
         customView.handler = this
         customView.getMonthsFromActivity(
-            "_session_id=x0LzXZpp1OnRfed0cBbNYhetZjs; path=/; HttpOnly",
+            "_session_id=OqBRjNjX89fV4wjh-ecvgfCWNPE; path=/; HttpOnly",
             this
         )
     }
