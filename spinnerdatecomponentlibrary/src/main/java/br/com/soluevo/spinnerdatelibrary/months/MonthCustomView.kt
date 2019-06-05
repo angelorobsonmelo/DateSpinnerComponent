@@ -84,6 +84,32 @@ class MonthCustomView(context: Context, attrs: AttributeSet) : LinearLayout(cont
         })
     }
 
+    fun getMonthsFromFragment(
+        cookieId: String,
+        fragment: Fragment
+    ) {
+        viewModel = ViewModelProviders.of(fragment, viewModelFactory)[MonthViewModel::class.java]
+        viewModel?.getMonths(cookieId)
+
+        binding.lifecycleOwner = fragment
+        binding.viewModel = viewModel
+
+        viewModel?.successObserver?.observe(fragment, Observer {
+            months.clear()
+            months.addAll(it)
+            setUpMonthSpinner()
+            handler?.setMonsths(months)
+        })
+
+        viewModel?.errorObserver?.observe(fragment, Observer {
+
+        })
+
+        viewModel?.position?.observe(fragment, Observer<Int> {
+            handler?.setMonth(months[it])
+        })
+    }
+
     private fun setUpMonthSpinner() {
         val lastPosition = months.size - 1
 
@@ -98,31 +124,6 @@ class MonthCustomView(context: Context, attrs: AttributeSet) : LinearLayout(cont
         mMaterialSpinner.setOnItemSelectedListener { _, position, _, _ ->
             viewModel?.setIndex(position)
         }
-    }
-
-    fun getMonthsFromFragment(
-        cookieId: String,
-        fragment: Fragment
-    ) {
-        viewModel = ViewModelProviders.of(fragment, viewModelFactory)[MonthViewModel::class.java]
-        viewModel?.getMonths(cookieId)
-
-        binding.lifecycleOwner = fragment
-        binding.viewModel = viewModel
-
-        viewModel?.successObserver?.observe(fragment, Observer {
-            months.clear()
-            months.addAll(it)
-            handler?.setMonsths(months)
-        })
-
-        viewModel?.errorObserver?.observe(fragment, Observer {
-
-        })
-
-        viewModel?.position?.observe(fragment, Observer<Int> {
-            handler?.setMonth(months[it])
-        })
     }
 
     fun clearDisposable() {
