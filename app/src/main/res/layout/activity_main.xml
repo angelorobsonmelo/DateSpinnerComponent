@@ -9,8 +9,8 @@
         tools:context=".MainActivity">
 
         <br.com.soluevo.spinnerdatelibrary.months.MonthCustomView
-                android:id="@+id/month_custom_view_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        android:id="@+id/month_custom_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

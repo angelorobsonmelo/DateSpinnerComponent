@@ -80,7 +80,7 @@ class MonthCustomView(context: Context, attrs: AttributeSet) : LinearLayout(cont
         })
 
         viewModel?.position?.observe(activity, Observer<Int> {
-            handler?.setMonth(months[it])
+            handler?.setMonth(months[it], it)
         })
     }
 
@@ -106,7 +106,7 @@ class MonthCustomView(context: Context, attrs: AttributeSet) : LinearLayout(cont
         })
 
         viewModel?.position?.observe(fragment, Observer<Int> {
-            handler?.setMonth(months[it])
+            handler?.setMonth(months[it], it)
         })
     }
 

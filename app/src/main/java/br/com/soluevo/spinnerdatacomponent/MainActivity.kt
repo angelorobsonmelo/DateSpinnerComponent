@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), MonthHandler {
         )
     }
 
-    override fun setMonth(monthResponse: MonthResponse) {
+    override fun setMonth(monthResponse: MonthResponse, index: Int) {
 
     }
 
