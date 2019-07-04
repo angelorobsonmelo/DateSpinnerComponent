@@ -31,7 +31,7 @@ class MonthViewModel @Inject constructor(
 
     fun getMonths(cookieId: String) {
         val disposable = monthsApiDataSource.getMonths(cookieId)
-            .subscribeOn(Schedulers.io())
+            .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .map {
                 it.reverse()
